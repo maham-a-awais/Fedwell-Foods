@@ -66,6 +66,7 @@ export function Overview({ overviewRef }: { overviewRef: React.RefObject<HTMLDiv
       <AnimateTop delay={0.5}>
         <div className="pb-20">
           <h1 className="font-bold text-2xl pb-10 text-center">Major Customers</h1>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {CUSTOMERS.map((customer) => (
               <div
