@@ -1,12 +1,5 @@
-import dynamic from "next/dynamic";
 import Image from "next/image";
-
-const AnimateFadeIn = dynamic(() => import("./Animations").then((mod) => mod.AnimateFadeIn), {
-  ssr: false,
-});
-const AnimateText = dynamic(() => import("./Animations").then((mod) => mod.AnimateText), {
-  ssr: false,
-});
+import { AnimateFadeIn, AnimateText } from "./Animations";
 
 export function LandingPage() {
   return (
@@ -21,15 +14,16 @@ export function LandingPage() {
           height={570}
           className="opacity-90"
         />
+
         <div className="absolute inset-0 flex flex-col items-center justify-center text-white font-bold p-4 bg-black bg-opacity-50">
           <AnimateText
             text="PROVIDING INDUSTRIAL AND TELECOM SOLUTIONS"
-            styles="text-lg md:text-4xl text-center"
+            styles="text-sm md:text-4xl text-center mb-2"
             delay={0.5}
           />
           <AnimateText
             text="Connect with us to take your business to the next level"
-            styles="text-sm md:text-xl font-medium text-center"
+            styles="text-xs md:text-xl font-medium text-center"
             delay={1.5}
           />
         </div>

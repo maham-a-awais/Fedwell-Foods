@@ -177,13 +177,18 @@ export const AnimateTop: React.FC<AnimateProps> = ({
 }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { amount: viewThres, once });
-  if (typeof window !== "undefined") {
-    const isMobile = window.innerWidth < 786;
+  const [isMobile, setIsMobile] = React.useState(false);
 
-    if (isMobile) {
-      return <div>{children}</div>;
+  React.useEffect(() => {
+    if (typeof window !== "undefined") {
+      setIsMobile(window.innerWidth < 786);
     }
+  }, []);
+
+  if (isMobile) {
+    return <div>{children}</div>;
   }
+
   return (
     <motion.div
       ref={ref}
@@ -235,9 +240,8 @@ export const AnimateText: React.FC<AnimateTextProps> = ({ text, delay = 1, style
   const ref = useRef(null);
   const isInView = useInView(ref, { amount: 0.5, once: true });
 
-  console.log("animae text");
   return (
-    <div ref={ref}>
+    <div ref={ref} className={`text-center ${styles}`}>
       <span className="sr-only">{text}</span>
       <motion.span
         initial="hidden"
@@ -245,9 +249,9 @@ export const AnimateText: React.FC<AnimateTextProps> = ({ text, delay = 1, style
         transition={{ staggerChildren: 0.1, delayChildren: delay, ease: "easeIn" }}
       >
         {text.split(" ").map((char, i) => (
-          <motion.span className={`inline-block ${styles}`} variants={defaultAnimations} key={i}>
+          <motion.span className={`inline-block${styles}`} variants={defaultAnimations} key={i}>
             {char}
-            <span className="inline-block">&nbsp;</span>
+            <span className="inline-block ">&nbsp;</span>
           </motion.span>
         ))}
       </motion.span>
@@ -307,12 +311,16 @@ export const AnimateFadeIn: React.FC<AnimateProps> = ({
 }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { amount: viewThres, once });
-  if (typeof window !== "undefined") {
-    const isMobile = window.innerWidth < 786;
+  const [isMobile, setIsMobile] = React.useState(false);
 
-    if (isMobile) {
-      return <div>{children}</div>;
+  React.useEffect(() => {
+    if (typeof window !== "undefined") {
+      setIsMobile(window.innerWidth < 786);
     }
+  }, []);
+
+  if (isMobile) {
+    return <div>{children}</div>;
   }
 
   return (

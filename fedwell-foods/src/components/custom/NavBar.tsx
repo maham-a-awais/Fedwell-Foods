@@ -17,8 +17,8 @@ export function NavBar({
     setHomeRef({ current: document.body as HTMLDivElement });
   }, []);
   return (
-    <nav className="w-full bg-white py-4 shadow-md sticky top-0 z-50 border-none">
-      <div className="container mx-auto flex  items-center px-4">
+    <nav className="w-full bg-white pt-4 Fshadow-md sticky top-0 z-50 border-none">
+      <div className="container mx-auto flex  items-center px-4 min-h-[50px]">
         {/* LOGO */}
         <Link className="flex items-center pr-2" href="/">
           <Image
