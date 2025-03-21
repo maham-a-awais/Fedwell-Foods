@@ -1,6 +1,12 @@
-import React from "react";
-import { AnimateFadeIn, AnimateText } from "./Animations";
+import dynamic from "next/dynamic";
 import Image from "next/image";
+
+const AnimateFadeIn = dynamic(() => import("./Animations").then((mod) => mod.AnimateFadeIn), {
+  ssr: false,
+});
+const AnimateText = dynamic(() => import("./Animations").then((mod) => mod.AnimateText), {
+  ssr: false,
+});
 
 export function LandingPage() {
   return (

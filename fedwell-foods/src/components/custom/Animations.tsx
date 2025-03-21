@@ -177,10 +177,12 @@ export const AnimateTop: React.FC<AnimateProps> = ({
 }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { amount: viewThres, once });
-  const isMobile = window.innerWidth < 786;
+  if (typeof window !== "undefined") {
+    const isMobile = window.innerWidth < 786;
 
-  if (isMobile) {
-    return <div>{children}</div>;
+    if (isMobile) {
+      return <div>{children}</div>;
+    }
   }
   return (
     <motion.div
@@ -233,6 +235,7 @@ export const AnimateText: React.FC<AnimateTextProps> = ({ text, delay = 1, style
   const ref = useRef(null);
   const isInView = useInView(ref, { amount: 0.5, once: true });
 
+  console.log("animae text");
   return (
     <div ref={ref}>
       <span className="sr-only">{text}</span>
@@ -304,10 +307,12 @@ export const AnimateFadeIn: React.FC<AnimateProps> = ({
 }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { amount: viewThres, once });
-  const isMobile = window.innerWidth < 786;
+  if (typeof window !== "undefined") {
+    const isMobile = window.innerWidth < 786;
 
-  if (isMobile) {
-    return <div>{children}</div>;
+    if (isMobile) {
+      return <div>{children}</div>;
+    }
   }
 
   return (
