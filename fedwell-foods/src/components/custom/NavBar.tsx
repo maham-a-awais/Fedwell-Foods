@@ -23,7 +23,7 @@ export function NavBar({
         <Link className="flex items-center pr-2" href="/">
           <Image
             aria-hidden
-            src="/improved-fedwell-foods.png"
+            src="/images/improved-fedwell-foods.png"
             alt="Fedwell Foods Logo"
             width={80}
             height={80}

@@ -14,7 +14,7 @@ export function LandingPage() {
       <div className="relative">
         <Image
           aria-hidden
-          src="/warehouse-2.png"
+          src="/images/warehouse-2.png"
           alt="Warehouse"
           layout="responsive"
           width={1640}
